@@ -1,0 +1,1 @@
+-Reactividade: quando trocas o valor de uma variavel, ele troca em qualquer sitio do sistema;

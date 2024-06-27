@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diretivas v-if</title>
+</head>
+<body>
+    <div id="app">
+        <div v-if="idade>=0 && idade<=50">
+            {{ title }}
+            <template>Teste</template>
+        </div>
+        <div v-else-if="idade>=50 && idade<=70">
+            Sim
+         </div>
+        <template v-else>
+           Mau
+           <div>sssss</div>
+           <div>ggg</div>
+           <div>ooooooo</div>
+        </template>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@3.2.0/dist/vue.global.js"></script>
+    <script>
+       const app = Vue.createApp({
+            data() {
+                return {
+                    title: 'hello world',
+                    idade: 10
+                };
+            },
+        }).mount('#app');
+    </script>
+</body>
+</html>
