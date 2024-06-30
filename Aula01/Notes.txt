@@ -1,1 +1,6 @@
 -Reactividade: quando trocas o valor de uma variavel, ele troca em qualquer sitio do sistema;
+-directiva: passo a passo para se executar uma instrucao{
+	*V-show: usado para mostrar e ocultar coisas na tela, eliminando o componente se "false" e mostrando se "true";
+	*V-If: usado para mostrar ou ocultar coisas na tela, mas nao elimina o componente se "false" e mostra se "true";
+	*V-Else: usado para mostrar coisas se o V-If for false
+}

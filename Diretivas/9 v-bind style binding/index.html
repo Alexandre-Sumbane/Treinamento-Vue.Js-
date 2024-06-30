@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diretivas v-bind</title>
+    <link rel="stylesheet" href="../bootstrap.min.css">
+    <style>
+        .card{
+            background-color: blue;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <div class="container mt-5">
+            <h1>
+                {{ title }}
+            </h1>
+            <div
+                :[attrname]="attrValue"
+                :class="card"
+            >
+                <div class="card-body card" :style="BackgroundColor">
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aut et, a voluptates consequatur molestias impedit magnam enim doloribus ea, nemo ducimus fuga blanditiis dolorum alias perspiciatis amet, quibusdam vitae earum!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@3.2.0/dist/vue.global.js"></script>
+    <script>
+       const app = Vue.createApp({
+            data() {
+                return {
+                    title: 'Vuejs do jeito ninja!',
+                    card: [{'card':true, 'text-white': true}, 'bg-primary'],
+                    attrname:'id',
+                    attrValue: 'card'
+                };
+            },
+        }).mount('#app');
+    </script>
+</body>
+</html>

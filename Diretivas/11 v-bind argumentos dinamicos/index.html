@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diretivas v-bind</title>
+    <link rel="stylesheet" href="../bootstrap.min.css">
+</head>
+<body>
+    <div id="app">
+        <h1>
+            {{ title }}
+        </h1>
+        <button class="btn" v-bind:class="btnClassEnviar" v-bind:style="btnStyleEnviar">Enviar</button>
+        <button class="btn" v-bind:class="btnClassLimpar" v-bind:style="btnStyleLimpar">Limpar</button>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@3.2.0/dist/vue.global.js"></script>
+    <script>
+       const app = Vue.createApp({
+            data() {
+                return {
+                    title: 'Vuejs do jeito ninja!',
+                    btnClassLimpar: {
+                        'btn-danger': true,
+                        'btn-sm': true
+                    },
+                    btnClassEnviar: [
+                        'btn-primary',
+                        {'btn-lg': false}
+                    ],
+                    btnStyleEnviar: [
+                        {'font-size': '50px'},
+                        {'text-transform': 'lowercase'}  
+                    ],
+                    btnStyleLimpar: {'font-size': '10px'}
+                };
+            },
+        }).mount('#app');
+    </script>
+</body>
+</html>
