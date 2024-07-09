@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width= , initial-scale=1.0">
+    <title>Hello World</title>
+</head>
+<body>
+    <div id="app">
+        <h1>{{title}}</h1>
+        <ul>
+            <li v-for="(movie, index) in movies">
+                {{index}} - {{movie.name}} ({{movie.release_date}})
+            </li>
+        </ul>
+    </div>
+    <script src="https://unpkg.com/vue@3.2.47"></script>
+    <script>
+        Vue.createApp({
+            data(){
+                return {
+                    title: 'Hello World',
+                    movies: [
+                        {name: 'Batman', release_date: '01/03/2010'},
+                        {name: 'Wolverine', release_date: '10/05/2015'},
+                        {name: 'Iron Man', release_date: '23/10/2020'}
+                    ],
+                };
+            },
+        }).mount('#app')
+    </script>
+</body>
+</html>

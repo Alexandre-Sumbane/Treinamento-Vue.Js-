@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width= , initial-scale=1.0">
+    <title>Hello World</title>
+</head>
+<body>
+    <div id="app">
+        <div v-if="showTitle">
+            {{title}}
+        </div>
+        <div v-else>
+            vue.js
+        </div>
+
+    </div>
+    <script src="https://unpkg.com/vue@3.2.47"></script>
+    <script>
+        Vue.createApp({
+            data(){
+                return {
+                    title: 'Hello World',
+                    showTitle: true
+                };
+            },
+        }).mount('#app')
+    </script>
+</body>
+</html>
