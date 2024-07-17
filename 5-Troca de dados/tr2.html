@@ -13,68 +13,58 @@
     <div id="app">
         <div class="container mt-5">
             <div class="mx-auto" style="width: 200px;">
-               <div class="mx-auto" style="width: 400px;">
+                <div class="mx-auto" style="width: 400px;">
 
-               </div>
+                </div>
             </div>
         </div>
 
         <card></card>
-        <card></card>
-        <card></card>
+
 
     </div>
     <template id="card">
         <div class="card shadow-sm">
-            <card-image></card-image>
+            <card-image :image="cardImage"></card-image>
             <div class="card-body">
-
-                <card-description></card-description>
+                <card-description :description="Carddescription"></card-description>
                 <ride></ride>
-                <card-actions></card-actions>
+                <card-actions :view="true" :edit="false"></card-actions>
 
             </div>
         </div>
     </template>
-    <template id="cardImage">
-        <div>
-            <svg class="bd-placeholder-img card-img-top" width="50%" height="200" xmlns="http://www.w3.org/2000/svg" role="img"
-                aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false">
-                <title>Placeholder</title>
-                <rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef"
-                    dy=".3em">Thumbnail</text>
-            </svg>
-        </div>
-    </template>
-
     <template id="cardDescription">
         <div>
-            <p class="card-text">this my Way. Rider Beatz, Voce e o gajo</p>
+            <p class="card-text">{{description}}</p>
         </div>
     </template>
     <template id="cardActions">
         <div class="d-flex justify-content-end align-items-center">
-        
+
             <div class="btn-group">
-        
-                <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-        
-                <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-        
+
+                <button v-if="view" type="button" class="btn btn-sm btn-outline-secondary">View</button>
+
+                <button v-if="edit" type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+
             </div>
         </div>
     </template>
     <template id="mrride">
-        <div class="ride">
+        <div>
             <p>Musica Familia e Amigos, vamos curtir ate amanhecer!</p>
         </div>
     </template>
+    <template id="cardImage">
+        <img :src="image" alt="" class="card-img-top">
+    </template>
     <script src="https://unpkg.com/vue@3.2.47"></script>
     <script>
-       const app = Vue.createApp({
+        const app = Vue.createApp({
             data() {
                 return {
-                
+
                 }
             }
         });
@@ -82,7 +72,8 @@
         app.component('card', {
             data() {
                 return {
-    
+                    Carddescription: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Omnis sequi atque sed maiores id provident eveniet repellendus qui quis, distinctio fuga temporibus laboriosam asperiores dolore nemo quam unde autem quisquam?',
+                    cardImage: '../1.jpg',
                 };
             },
 
@@ -90,16 +81,27 @@
         });
 
         app.component('card-image', {
-            template: '#cardImage'
+            template: '#cardImage',
+            props: ['image']
         });
         app.component('card-description', {
             template: '#cardDescription',
+
+            props: ['description'],
+
+            data() {
+                return {
+
+                };
+            },
         });
         app.component('card-actions', {
-            template: '#cardActions'
+            template: '#cardActions',
+
+            props: ['view', 'edit'],
         });
         app.component('ride', {
-            template: '#mride'
+            template: '#mrride'
         });
         app.mount('#app');
     </script>
